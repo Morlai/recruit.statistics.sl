@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistics Sierra Leone - 2026 Population and Housing Census</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #1a1a1a;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  .app {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #f0f2f5;
+    min-height: 100vh;
+    padding-bottom: 20px;
+  }
+
+  .top-bar { height: 6px; background: #1a6b3c; width: 100%; }
+  .progress-bar { height: 6px; background: #e0e0e0; width: 100%; }
+  .progress-fill { height: 100%; background: #1a6b3c; transition: width 0.3s ease; }
+
+  .header {
+    background: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .logo { width: 52px; height: 52px; flex-shrink: 0; }
+  .logo svg { width: 100%; height: 100%; }
+
+  .header-text { flex: 1; }
+  .header-org { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #555; text-transform: uppercase; }
+  .header-title { font-size: 18px; font-weight: 800; color: #1a1a1a; line-height: 1.2; margin-top: 2px; }
+
+  .banner { margin: 12px 16px; padding: 12px 14px; border-radius: 8px; font-size: 13px; line-height: 1.4; }
+  .banner-warning { background: #fff8e1; border: 1px solid #ffe082; color: #5d4037; }
+  .banner-info { background: #fff8e1; border: 1px solid #ffe082; color: #5d4037; }
+
+  .card {
+    background: white;
+    margin: 0 16px 12px 16px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .card-landing { padding: 0; overflow: hidden; }
+  .card-landing .content { padding: 20px; }
+
+  .date-label { font-size: 13px; color: #666; margin-bottom: 12px; }
+  .section-heading {
+    font-size: 17px; font-weight: 800; color: #1a1a1a;
+    padding-left: 12px; border-left: 4px solid #1a6b3c;
+    margin-bottom: 4px; line-height: 1.3;
+  }
+  .slogan { font-style: italic; font-weight: 700; color: #1a6b3c; font-size: 15px; margin-bottom: 12px; }
+  .body-text { font-size: 14px; color: #333; margin-bottom: 12px; line-height: 1.55; }
+  .body-text strong { font-weight: 700; }
+  .deadline { font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+  .sub-heading { font-size: 15px; font-weight: 700; color: #1a1a1a; margin: 16px 0 8px 0; }
+  .bullet-list { padding-left: 20px; margin-bottom: 12px; }
+  .bullet-list li { font-size: 14px; color: #333; margin-bottom: 6px; line-height: 1.5; }
+
+  .important-notice {
+    background: #fff8e1; border-left: 4px solid #f57c00;
+    padding: 14px 16px; margin: 16px 0; border-radius: 0 8px 8px 0;
+    font-size: 13px; line-height: 1.5; color: #333;
+  }
+  .important-notice strong { color: #1a1a1a; }
+  .signed { font-size: 13px; color: #555; margin-top: 12px; font-style: italic; }
+  .read-toggle { color: #1a6b3c; font-size: 13px; font-weight: 600; cursor: pointer; margin-top: 8px; display: inline-block; }
+
+  .apply-section { margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee; }
+  .apply-text { font-size: 14px; color: #333; margin-bottom: 16px; line-height: 1.55; }
+  .apply-text strong { font-weight: 700; }
+
+  .form-label { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px; display: block; }
+  .form-input {
+    width: 100%; padding: 12px 14px; border: 1.5px solid #ddd;
+    border-radius: 8px; font-size: 15px; font-family: inherit;
+    background: white; color: #1a1a1a; transition: border-color 0.2s; margin-bottom: 12px;
+  }
+  .form-input:focus { outline: none; border-color: #1a6b3c; box-shadow: 0 0 0 3px rgba(26,107,60,0.1); }
+  .form-input::placeholder { color: #999; }
+
+  .btn-primary {
+    width: 100%; padding: 14px; background: #1a6b3c; color: white;
+    border: none; border-radius: 8px; font-size: 15px; font-weight: 700;
+    cursor: pointer; font-family: inherit; transition: background 0.2s; margin-top: 4px;
+  }
+  .btn-primary:hover { background: #145a30; }
+  .btn-primary:active { background: #0f4a26; }
+
+  .btn-secondary {
+    width: 100%; padding: 14px; background: white; color: #1a6b3c;
+    border: 1.5px solid #ddd; border-radius: 8px; font-size: 15px; font-weight: 700;
+    cursor: pointer; font-family: inherit; transition: all 0.2s; margin-top: 10px;
+  }
+  .btn-secondary:hover { background: #f8f9fa; }
+
+  .btn-row { display: flex; gap: 10px; margin-top: 16px; }
+  .btn-row .btn-secondary, .btn-row .btn-primary { flex: 1; margin-top: 0; }
+
+  .already-applied { text-align: center; margin-top: 16px; font-size: 13px; color: #555; line-height: 1.5; }
+  .already-applied a { color: #1a6b3c; font-weight: 600; text-decoration: none; }
+
+  .footer { text-align: center; padding: 16px 20px; font-size: 12px; color: #777; line-height: 1.5; }
+
+  .otp-card { background: white; margin: 0 16px 12px 16px; border-radius: 12px; padding: 24px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .otp-title { font-size: 17px; font-weight: 800; color: #1a1a1a; padding-left: 12px; border-left: 4px solid #1a6b3c; margin-bottom: 16px; }
+  .otp-title a { color: #1a6b3c; text-decoration: underline; }
+  .otp-input {
+    width: 100%; padding: 14px; border: 2px solid #1a6b3c; border-radius: 8px;
+    font-size: 20px; font-family: inherit; text-align: center; letter-spacing: 8px;
+    margin-bottom: 16px; font-weight: 600;
+  }
+  .otp-input:focus { outline: none; box-shadow: 0 0 0 3px rgba(26,107,60,0.15); }
+  .resend-btn {
+    width: 100%; padding: 14px; background: white; color: #1a6b3c;
+    border: 1.5px solid #ddd; border-radius: 8px; font-size: 15px; font-weight: 700;
+    cursor: pointer; font-family: inherit; margin-top: 10px;
+  }
+  .resend-btn:disabled { color: #999; cursor: not-allowed; }
+
+  .tabs { display: flex; gap: 8px; padding: 12px 16px 0 16px; overflow-x: auto; }
+  .tab {
+    display: flex; align-items: center; gap: 6px; padding: 10px 14px;
+    border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap;
+    cursor: pointer; border: 1.5px solid transparent; background: white; color: #666; flex-shrink: 0;
+  }
+  .tab.active { background: #e8f5e9; color: #1a6b3c; border-color: #1a6b3c; }
+  .tab.completed { color: #1a6b3c; }
+  .tab-icon { font-size: 14px; }
+  .tab-check { color: #1a6b3c; font-weight: 700; margin-left: 2px; }
+
+  .signout-bar { margin: 12px 16px 0 16px; padding: 10px 14px; background: #fff8e1; border-radius: 8px; text-align: center; }
+  .signout-btn { background: none; border: none; color: #8b6914; font-weight: 700; font-size: 14px; cursor: pointer; font-family: inherit; }
+  .saved-note { text-align: center; font-size: 12px; color: #777; padding: 8px 16px 0 16px; }
+
+  .form-section-title {
+    font-size: 18px; font-weight: 800; color: #1a1a1a;
+    padding-left: 12px; border-left: 4px solid #1a6b3c; margin-bottom: 4px;
+  }
+  .form-section-subtitle { font-size: 13px; color: #666; margin-bottom: 18px; padding-left: 12px; }
+
+  .field-group { margin-bottom: 16px; }
+  .field-label { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; display: block; }
+  .field-hint { font-size: 12px; color: #777; margin-top: 4px; }
+
+  .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+  .radio-pill {
+    display: flex; align-items: center; gap: 8px; padding: 10px 16px;
+    border: 1.5px solid #ddd; border-radius: 8px; cursor: pointer;
+    font-size: 14px; font-weight: 500; color: #333; background: white; transition: all 0.15s;
+  }
+  .radio-pill input[type="radio"] { accent-color: #1a6b3c; width: 16px; height: 16px; }
+  .radio-pill:has(input:checked) { border-color: #1a6b3c; background: #e8f5e9; color: #1a6b3c; font-weight: 600; }
+
+  .radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .radio-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+  .select-input {
+    width: 100%; padding: 12px 14px; border: 1.5px solid #ddd;
+    border-radius: 8px; font-size: 15px; font-family: inherit;
+    background: white; color: #1a1a1a; appearance: auto; margin-bottom: 0;
+  }
+  .select-input:focus { outline: none; border-color: #1a6b3c; }
+  .readonly-input { background: #f5f5f5; color: #555; cursor: default; }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* Experience Table */
+  .exp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 12px;
+  }
+  .exp-table th {
+    background: #f5f5f5;
+    padding: 8px 4px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+  }
+  .exp-table th:first-child { text-align: left; padding-left: 8px; }
+  .exp-table td {
+    padding: 10px 4px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  .exp-table td:first-child {
+    text-align: left;
+    padding-left: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #333;
+  }
+  .exp-table input[type="radio"] {
+    accent-color: #1a6b3c;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  /* Skills Table */
+  .lang-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  .lang-table th {
+    background: #f5f5f5;
+    padding: 8px 6px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+  }
+  .lang-table th:first-child { text-align: left; padding-left: 8px; }
+  .lang-table td {
+    padding: 8px 6px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  .lang-table td:first-child {
+    text-align: left;
+    padding-left: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  .lang-table input[type="checkbox"] {
+    accent-color: #1a6b3c;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  /* Review Section */
+  .review-section {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+  }
+  .review-section:last-of-type { border-bottom: none; }
+  .review-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a6b3c;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  .review-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+  }
+  .review-label { color: #666; font-weight: 500; }
+  .review-value { color: #1a1a1a; font-weight: 600; text-align: right; max-width: 60%; }
+
+  .declaration-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+  }
+  .declaration-item input[type="checkbox"] {
+    accent-color: #1a6b3c;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 480px) {
+    .app { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ==================== SCREEN 1: LANDING PAGE ==================== -->
+  <div class="screen active" id="screen-landing">
+    <div class="top-bar"></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+
+    <div class="banner banner-warning">Your session expired – verify your number again to continue.</div>
+
+    <div class="card card-landing">
+      <div class="content">
+        <div class="date-label">18 September 2026</div>
+        <div class="section-heading">Recruitment of Field Personnel for the 2026 Population and Housing Census</div>
+        <div class="slogan">"Leh Den Kont You Oh!"</div>
+
+        <div id="landing-content">
+          <p class="body-text">Statistics Sierra Leone (Stats SL) invite applications from suitably qualified and experienced Sierra Leoneans to serve as Field Personnel for the conduct of the 2026 Population and Housing Census (PHC).</p>
+          <p class="deadline">Application deadline: Friday 2 October 2026</p>
+          <p class="body-text">Successful applicants will be shortlisted and invited to a mandatory training programme. Final assignment as Field Coordinator, Supervisor or Enumerator will be determined by performance during training.</p>
+          <div class="sub-heading">Minimum requirements</div>
+          <p class="body-text" style="margin-bottom:4px;">Applicants must:</p>
+          <ul class="bullet-list">
+            <li>Be a Sierra Leonean citizen</li>
+            <li>Hold a Bachelor's degree in statistics, mathematics, GIS, ICT, social sciences or a related field, a Higher National Diploma (HND) or an Ordinary National Diploma (OND) from a recognised institution (a Master's degree is an added advantage)</li>
+            <li>Have at least three (3) years of experience in census and survey data collection</li>
+            <li>Have ICT and digital data-collection skills</li>
+            <li>Have knowledge of the local area, community and language</li>
+            <li>Have a strong understanding of field supervision, data validation, quality control and survey methodology</li>
+          </ul>
+          <div class="sub-heading">Key duties</div>
+          <p class="body-text">Collect and record accurate census information, conduct household interviews, use the approved digital data-collection devices, follow census procedures and instructions, keep all information collected confidential, work effectively as part of a field team, and perform other duties assigned in support of the census.</p>
+          <div class="sub-heading">What you need to apply</div>
+          <p class="body-text" style="margin-bottom:4px;">Apply only through this official online portal. Have ready:</p>
+          <ul class="bullet-list">
+            <li>Your National Identification Number (NIN)</li>
+            <li>Your personal and contact details</li>
+            <li>Your educational qualifications</li>
+          </ul>
+          <div class="important-notice">
+            <strong>IMPORTANT NOTICE</strong> — Recruitment is <strong>FREE</strong>. Applicants must not pay any money to anyone at any stage of the recruitment process. Only shortlisted candidates who successfully complete the required training and assessment will be considered for final deployment.
+          </div>
+          <div class="signed">Signed: Statistician General</div>
+        </div>
+
+        <div class="read-toggle" id="readToggle" onclick="toggleLanding()">Read less ▴</div>
+
+        <div class="apply-section">
+          <div class="section-heading">Apply online</div>
+          <p class="apply-text">You need your <strong>NIN</strong> (National ID Number) and a phone that can receive SMS. The form takes about 8 minutes and you can save and continue at any time.</p>
+          <label class="form-label" for="mobile-landing">Mobile number</label>
+          <input type="tel" class="form-input" id="mobile-landing" placeholder="e.g., 030386768" value="030386768">
+          <button class="btn-primary" onclick="goToOTP()">Send my verification code</button>
+          <div class="already-applied">Already applied? <a href="#">Your application is in the screening queue.</a> You will be contacted via SMS by Statistics Sierra Leone.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+  <!-- ==================== SCREEN 2: OTP VERIFICATION ==================== -->
+  <div class="screen" id="screen-otp">
+    <div class="top-bar"></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 10%"></div></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+    <div class="banner banner-info">A code was sent by SMS. It expires in 10 minutes.</div>
+    <div class="otp-card">
+      <div class="otp-title">Enter the code sent to <a href="#" id="otp-number-display">030386768</a></div>
+      <label class="form-label" for="otp-code">6-digit code</label>
+      <input type="text" class="otp-input" id="otp-code" maxlength="6" placeholder="------" inputmode="numeric">
+      <button class="btn-primary" onclick="verifyOTP()">Verify</button>
+      <button class="resend-btn" id="resendBtn" onclick="resendCode()">Resend code (<span id="resendTimer">52</span>s)</button>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+  <!-- ==================== SCREEN 3: PERSONAL INFORMATION ==================== -->
+  <div class="screen" id="screen-personal">
+    <div class="top-bar"></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab active"><span class="tab-icon"></span> Personal Information</div>
+      <div class="tab"><span class="tab-icon"></span> Position &amp; Location</div>
+      <div class="tab"><span class="tab-icon">🎓</span> Education</div>
+      <div class="tab"><span class="tab-icon">💼</span> Experience</div>
+      <div class="tab"><span class="tab-icon">🗣️</span> Skills</div>
+      <div class="tab"><span class="tab-icon">📋</span> Review</div>
+    </div>
+    <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
+    <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
+
+    <div class="card" style="margin-top: 12px;">
+      <div class="form-section-title">A. Personal Information</div>
+      <div class="form-section-subtitle">Names exactly as on your national ID.</div>
+
+      <div class="field-group">
+        <label class="field-label" for="firstname">First name</label>
+        <input type="text" class="form-input" id="firstname" style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="othername">Other name(s)</label>
+        <input type="text" class="form-input" id="othername" style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="surname">Surname</label>
+        <input type="text" class="form-input" id="surname" style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Sex</label>
+        <div class="radio-group">
+          <label class="radio-pill"><input type="radio" name="sex" value="Male"> Male</label>
+          <label class="radio-pill"><input type="radio" name="sex" value="Female"> Female</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="dob">Date of birth</label>
+        <input type="date" class="form-input" id="dob" style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="nin">NIN (National ID Number)</label>
+        <input type="text" class="form-input" id="nin" placeholder="15-digit NIN" maxlength="15" style="margin-bottom:0;">
+        <div class="field-hint">Checked against all applications – one per person.</div>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="altphone">Alternate phone (optional)</label>
+        <input type="tel" class="form-input" id="altphone" style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="email">Email (optional)</label>
+        <input type="email" class="form-input" id="email" style="margin-bottom:0;">
+      </div>
+
+      <button class="btn-primary" onclick="goToPosition()">Save &amp; Continue</button>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+  <!-- ==================== SCREEN 4: POSITION & LOCATION ==================== -->
+  <div class="screen" id="screen-position">
+    <div class="top-bar"></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 35%"></div></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab completed"><span class="tab-icon"></span> Personal Information <span class="tab-check">✓</span></div>
+      <div class="tab active"><span class="tab-icon"></span> Position &amp; Location</div>
+      <div class="tab"><span class="tab-icon">🎓</span> Education</div>
+      <div class="tab"><span class="tab-icon">💼</span> Experience</div>
+      <div class="tab"><span class="tab-icon">🗣️</span> Skills</div>
+      <div class="tab"><span class="tab-icon">📋</span> Review</div>
+    </div>
+    <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
+    <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
+
+    <div class="card" style="margin-top: 12px;">
+      <div class="form-section-title">B. Position &amp; Location</div>
+      <div class="form-section-subtitle">Posts are allocated by district.</div>
+
+      <div class="field-group">
+        <label class="field-label">Position applying for</label>
+        <input type="text" class="form-input readonly-input" value="Field Personnel" readonly style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="district">District to work in</label>
+        <select class="select-input" id="district">
+          <option value="">Select district</option>
+          <option value="Bo">Bo – Southern</option>
+          <option value="Bombali">Bombali – Northern</option>
+          <option value="Bonthe">Bonthe – Southern</option>
+          <option value="Kailahun">Kailahun – Eastern</option>
+          <option value="Kambia">Kambia – Northern</option>
+          <option value="Kenema">Kenema – Eastern</option>
+          <option value="Koinadugu">Koinadugu – Northern</option>
+          <option value="Kono">Kono – Eastern</option>
+          <option value="Moyamba">Moyamba – Southern</option>
+          <option value="Port Loko">Port Loko – Northern</option>
+          <option value="Pujehun">Pujehun – Southern</option>
+          <option value="Tonkolili">Tonkolili – Northern</option>
+          <option value="Western Area Urban">Western Area Urban</option>
+          <option value="Western Area Rural">Western Area Rural</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="chiefdom">Chiefdom</label>
+        <select class="select-input" id="chiefdom">
+          <option value="-">-</option>
+          <option value="Badjia">Badjia</option>
+          <option value="Bo City">Bo City</option>
+          <option value="Bumpeh">Bumpeh</option>
+          <option value="Koya">Koya</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="section">Section to work in</label>
+        <select class="select-input" id="section">
+          <option value="-">-</option>
+          <option value="Sei">Sei</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="community">Community/Address to work in</label>
+        <input type="text" class="form-input" id="community" style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Willing to work anywhere in your district?</label>
+        <div class="radio-group">
+          <label class="radio-pill"><input type="radio" name="willing" value="Yes"> Yes</label>
+          <label class="radio-pill"><input type="radio" name="willing" value="No"> No</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Available for the FULL training and enumeration period?</label>
+        <div class="radio-group">
+          <label class="radio-pill"><input type="radio" name="available" value="Yes"> Yes</label>
+          <label class="radio-pill"><input type="radio" name="available" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goToPersonal()">Back</button>
+        <button class="btn-primary" onclick="goToEducation()">Save &amp; Continue</button>
+      </div>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+  <!-- ==================== SCREEN 5: EDUCATION ==================== -->
+  <div class="screen" id="screen-education">
+    <div class="top-bar"></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">📍</span> Position &amp; Location <span class="tab-check">✓</span></div>
+      <div class="tab active"><span class="tab-icon"></span> Education</div>
+      <div class="tab"><span class="tab-icon"></span> Experience</div>
+      <div class="tab"><span class="tab-icon">️</span> Skills</div>
+      <div class="tab"><span class="tab-icon"></span> Review</div>
+    </div>
+    <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
+    <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
+
+    <div class="card" style="margin-top: 12px;">
+      <div class="form-section-title">C. Education</div>
+      <div class="form-section-subtitle">Bring original certificates to interview.</div>
+
+      <div class="field-group">
+        <label class="field-label">Highest level completed</label>
+        <div class="radio-grid">
+          <label class="radio-pill"><input type="radio" name="education" value="BECE"> BECE</label>
+          <label class="radio-pill"><input type="radio" name="education" value="WASSCE"> WASSCE</label>
+          <label class="radio-pill"><input type="radio" name="education" value="Certificate"> Certificate</label>
+          <label class="radio-pill"><input type="radio" name="education" value="Diploma"> Diploma</label>
+          <label class="radio-pill"><input type="radio" name="education" value="GCSE O'Level"> GCSE O' Level</label>
+          <label class="radio-pill"><input type="radio" name="education" value="A'Level"> A' Level</label>
+          <label class="radio-pill" style="grid-column: 1 / -1;"><input type="radio" name="education" value="Degree or higher"> Degree or higher</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="yearcompleted">Year completed (YYYY)</label>
+        <input type="text" class="form-input" id="yearcompleted" placeholder="YYYY" maxlength="4" inputmode="numeric" style="margin-bottom:0;">
+      </div>
+      <div class="field-group">
+        <label class="field-label">WASSCE / GCSE O'Level English pass?</label>
+        <div class="radio-grid-3">
+          <label class="radio-pill"><input type="radio" name="english" value="Yes"> Yes</label>
+          <label class="radio-pill"><input type="radio" name="english" value="No"> No</label>
+          <label class="radio-pill"><input type="radio" name="english" value="Not applicable"> Not applicable</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">WASSCE / GCSE O'Level Maths pass?</label>
+        <div class="radio-grid-3">
+          <label class="radio-pill"><input type="radio" name="maths" value="Yes"> Yes</label>
+          <label class="radio-pill"><input type="radio" name="maths" value="No"> No</label>
+          <label class="radio-pill"><input type="radio" name="maths" value="Not applicable"> Not applicable</label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goToPosition()">Back</button>
+        <button class="btn-primary" onclick="goToExperience()">Save &amp; Continue</button>
+      </div>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+  <!-- ==================== SCREEN 6: EXPERIENCE ==================== -->
+  <div class="screen" id="screen-experience">
+    <div class="top-bar"></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">📍</span> Position &amp; Location <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon"></span> Education <span class="tab-check">✓</span></div>
+      <div class="tab active"><span class="tab-icon">💼</span> Experience</div>
+      <div class="tab"><span class="tab-icon">🗣️</span> Skills</div>
+      <div class="tab"><span class="tab-icon"></span> Review</div>
+    </div>
+    <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
+    <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
+
+    <div class="card" style="margin-top: 12px;">
+      <div class="form-section-title">D. Experience</div>
+      <div class="form-section-subtitle">Previous Stats SL work is verified against our records. For each survey, tick the role you held.</div>
+
+      <div class="field-label" style="margin-bottom: 8px;">Previous Stats SL field work – role per survey</div>
+      <div style="overflow-x: auto;">
+        <table class="exp-table">
+          <thead>
+            <tr>
+              <th>Survey</th>
+              <th>Did Not Work</th>
+              <th>Enumerator</th>
+              <th>Supervisor</th>
+              <th>Listing</th>
+              <th>Other</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Census</td>
+              <td><input type="radio" name="exp_census" value="Did Not Work" checked></td>
+              <td><input type="radio" name="exp_census" value="Enumerator"></td>
+              <td><input type="radio" name="exp_census" value="Supervisor"></td>
+              <td><input type="radio" name="exp_census" value="Listing"></td>
+              <td><input type="radio" name="exp_census" value="Other"></td>
+            </tr>
+            <tr>
+              <td>SLIHS</td>
+              <td><input type="radio" name="exp_slihs" value="Did Not Work" checked></td>
+              <td><input type="radio" name="exp_slihs" value="Enumerator"></td>
+              <td><input type="radio" name="exp_slihs" value="Supervisor"></td>
+              <td><input type="radio" name="exp_slihs" value="Listing"></td>
+              <td><input type="radio" name="exp_slihs" value="Other"></td>
+            </tr>
+            <tr>
+              <td>Agricultural Survey</td>
+              <td><input type="radio" name="exp_agri" value="Did Not Work" checked></td>
+              <td><input type="radio" name="exp_agri" value="Enumerator"></td>
+              <td><input type="radio" name="exp_agri" value="Supervisor"></td>
+              <td><input type="radio" name="exp_agri" value="Listing"></td>
+              <td><input type="radio" name="exp_agri" value="Other"></td>
+            </tr>
+            <tr>
+              <td>SLDHS</td>
+              <td><input type="radio" name="exp_sldhs" value="Did Not Work" checked></td>
+              <td><input type="radio" name="exp_sldhs" value="Enumerator"></td>
+              <td><input type="radio" name="exp_sldhs" value="Supervisor"></td>
+              <td><input type="radio" name="exp_sldhs" value="Listing"></td>
+              <td><input type="radio" name="exp_sldhs" value="Other"></td>
+            </tr>
+            <tr>
+              <td>SLMICS</td>
+              <td><input type="radio" name="exp_slmics" value="Did Not Work" checked></td>
+              <td><input type="radio" name="exp_slmics" value="Enumerator"></td>
+              <td><input type="radio" name="exp_slmics" value="Supervisor"></td>
+              <td><input type="radio" name="exp_slmics" value="Listing"></td>
+              <td><input type="radio" name="exp_slmics" value="Other"></td>
+            </tr>
+            <tr>
+              <td>PSSNYE (SSN)</td>
+              <td><input type="radio" name="exp_pssnye" value="Did Not Work" checked></td>
+              <td><input type="radio" name="exp_pssnye" value="Enumerator"></td>
+              <td><input type="radio" name="exp_pssnye" value="Supervisor"></td>
+              <td><input type="radio" name="exp_pssnye" value="Listing"></td>
+              <td><input type="radio" name="exp_pssnye" value="Other"></td>
+            </tr>
+            <tr>
+              <td>Other Survey</td>
+              <td><input type="radio" name="exp_other" value="Did Not Work" checked></td>
+              <td><input type="radio" name="exp_other" value="Enumerator"></td>
+              <td><input type="radio" name="exp_other" value="Supervisor"></td>
+              <td><input type="radio" name="exp_other" value="Listing"></td>
+              <td><input type="radio" name="exp_other" value="Other"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="field-group" style="margin-top: 20px;">
+        <label class="field-label" for="otherexperience">Other field/data experience (optional)</label>
+        <textarea class="form-input" id="otherexperience" rows="3" style="margin-bottom:0; resize: vertical;"></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goToEducation()">Back</button>
+        <button class="btn-primary" onclick="goToSkills()">Save &amp; Continue</button>
+      </div>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+  <!-- ==================== SCREEN 7: SKILLS ==================== -->
+  <div class="screen" id="screen-skills">
+    <div class="top-bar"></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">📍</span> Position &amp; Location <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon"></span> Education <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">💼</span> Experience <span class="tab-check">✓</span></div>
+      <div class="tab active"><span class="tab-icon">🗣️</span> Skills</div>
+      <div class="tab"><span class="tab-icon">📋</span> Review</div>
+    </div>
+    <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
+    <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
+
+    <div class="card" style="margin-top: 12px;">
+      <div class="form-section-title">E. Skills</div>
+      <div class="form-section-subtitle">Tick what you can do in each language – proficiency guides your deployment.</div>
+
+      <div class="field-label" style="margin-bottom: 8px;">Language proficiency</div>
+      <div style="overflow-x: auto;">
+        <table class="lang-table">
+          <thead>
+            <tr>
+              <th>Language</th>
+              <th>Speak</th>
+              <th>Write</th>
+              <th>Read</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Krio</td><td><input type="checkbox" name="lang_krio_speak"></td><td><input type="checkbox" name="lang_krio_write"></td><td><input type="checkbox" name="lang_krio_read"></td></tr>
+            <tr><td>Mende</td><td><input type="checkbox" name="lang_mende_speak"></td><td><input type="checkbox" name="lang_mende_write"></td><td><input type="checkbox" name="lang_mende_read"></td></tr>
+            <tr><td>Temne</td><td><input type="checkbox" name="lang_temne_speak"></td><td><input type="checkbox" name="lang_temne_write"></td><td><input type="checkbox" name="lang_temne_read"></td></tr>
+            <tr><td>Limba</td><td><input type="checkbox" name="lang_limba_speak"></td><td><input type="checkbox" name="lang_limba_write"></td><td><input type="checkbox" name="lang_limba_read"></td></tr>
+            <tr><td>Kono</td><td><input type="checkbox" name="lang_kono_speak"></td><td><input type="checkbox" name="lang_kono_write"></td><td><input type="checkbox" name="lang_kono_read"></td></tr>
+            <tr><td>Fullah</td><td><input type="checkbox" name="lang_fullah_speak"></td><td><input type="checkbox" name="lang_fullah_write"></td><td><input type="checkbox" name="lang_fullah_read"></td></tr>
+            <tr><td>Susu</td><td><input type="checkbox" name="lang_susu_speak"></td><td><input type="checkbox" name="lang_susu_write"></td><td><input type="checkbox" name="lang_susu_read"></td></tr>
+            <tr><td>Kuranko</td><td><input type="checkbox" name="lang_kuranko_speak"></td><td><input type="checkbox" name="lang_kuranko_write"></td><td><input type="checkbox" name="lang_kuranko_read"></td></tr>
+            <tr><td>Sherbro</td><td><input type="checkbox" name="lang_sherbro_speak"></td><td><input type="checkbox" name="lang_sherbro_write"></td><td><input type="checkbox" name="lang_sherbro_read"></td></tr>
+            <tr><td>Kissi</td><td><input type="checkbox" name="lang_kissi_speak"></td><td><input type="checkbox" name="lang_kissi_write"></td><td><input type="checkbox" name="lang_kissi_read"></td></tr>
+            <tr><td>Loko</td><td><input type="checkbox" name="lang_loko_speak"></td><td><input type="checkbox" name="lang_loko_write"></td><td><input type="checkbox" name="lang_loko_read"></td></tr>
+            <tr><td>Mandingo</td><td><input type="checkbox" name="lang_mandingo_speak"></td><td><input type="checkbox" name="lang_mandingo_write"></td><td><input type="checkbox" name="lang_mandingo_read"></td></tr>
+            <tr><td>Yalunka</td><td><input type="checkbox" name="lang_yalunka_speak"></td><td><input type="checkbox" name="lang_yalunka_write"></td><td><input type="checkbox" name="lang_yalunka_read"></td></tr>
+            <tr><td>Kloo</td><td><input type="checkbox" name="lang_kloo_speak"></td><td><input type="checkbox" name="lang_kloo_write"></td><td><input type="checkbox" name="lang_kloo_read"></td></tr>
+            <tr><td>Vai</td><td><input type="checkbox" name="lang_vai_speak"></td><td><input type="checkbox" name="lang_vai_write"></td><td><input type="checkbox" name="lang_vai_read"></td></tr>
+            <tr><td>Krim</td><td><input type="checkbox" name="lang_krim_speak"></td><td><input type="checkbox" name="lang_krim_write"></td><td><input type="checkbox" name="lang_krim_read"></td></tr>
+            <tr><td>Other</td><td><input type="checkbox" name="lang_other_speak"></td><td><input type="checkbox" name="lang_other_write"></td><td><input type="checkbox" name="lang_other_read"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="field-hint" style="margin-top: 8px; margin-bottom: 16px;">Tick SPEAK for at least one language.</div>
+
+      <div class="field-group">
+        <label class="field-label">Do you own a smartphone?</label>
+        <div class="radio-group">
+          <label class="radio-pill"><input type="radio" name="smartphone" value="Yes"> Yes</label>
+          <label class="radio-pill"><input type="radio" name="smartphone" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Comfortable using tablet for data entry</label>
+        <div class="radio-grid">
+          <label class="radio-pill"><input type="radio" name="tablet" value="1 - New to it"> 1 – New to it</label>
+          <label class="radio-pill"><input type="radio" name="tablet" value="2 - Some use"> 2 – Some use</label>
+          <label class="radio-pill" style="grid-column: 1 / -1;"><input type="radio" name="tablet" value="3 - Confident"> 3 – Confident</label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goToExperience()">Back</button>
+        <button class="btn-primary" onclick="goToReview()">Save &amp; Continue</button>
+      </div>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+  <!-- ==================== SCREEN 8: REVIEW & SUBMIT ==================== -->
+  <div class="screen" id="screen-review">
+    <div class="top-bar"></div>
+    <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
+          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
+          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
+          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
+          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
+          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <div class="header-org">Statistics Sierra Leone</div>
+        <div class="header-title">2026 Population and Housing Census</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">📍</span> Position &amp; Location <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">🎓</span> Education <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">💼</span> Experience <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">🗣️</span> Skills <span class="tab-check">✓</span></div>
+      <div class="tab active"><span class="tab-icon">📋</span> Review</div>
+    </div>
+    <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
+    <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
+
+    <div class="card" style="margin-top: 12px;">
+      <div class="form-section-title">F. Review &amp; Submit</div>
+      <div class="form-section-subtitle">Check everything, tick the declarations, submit once.</div>
+
+      <div class="review-section">
+        <div class="review-section-title">A. Personal Information</div>
+        <div class="review-row"><span class="review-label">First name</span><span class="review-value" id="rev-firstname">–</span></div>
+        <div class="review-row"><span class="review-label">Other name(s)</span><span class="review-value" id="rev-othername">–</span></div>
+        <div class="review-row"><span class="review-label">Surname</span><span class="review-value" id="rev-surname">–</span></div>
+        <div class="review-row"><span class="review-label">Sex</span><span class="review-value" id="rev-sex">–</span></div>
+        <div class="review-row"><span class="review-label">Date of birth</span><span class="review-value" id="rev-dob">–</span></div>
+        <div class="review-row"><span class="review-label">NIN</span><span class="review-value" id="rev-nin">–</span></div>
+        <div class="review-row"><span class="review-label">Alternate phone</span><span class="review-value" id="rev-altphone">–</span></div>
+        <div class="review-row"><span class="review-label">Email</span><span class="review-value" id="rev-email">–</span></div>
+      </div>
+
+      <div class="review-section">
+        <div class="review-section-title">B. Position &amp; Location</div>
+        <div class="review-row"><span class="review-label">Position applying for</span><span class="review-value" id="rev-position">Field Personnel</span></div>
+        <div class="review-row"><span class="review-label">District to work in</span><span class="review-value" id="rev-district">–</span></div>
+        <div class="review-row"><span class="review-label">Chiefdom</span><span class="review-value" id="rev-chiefdom">–</span></div>
+        <div class="review-row"><span class="review-label">Section to work in</span><span class="review-value" id="rev-section">–</span></div>
+        <div class="review-row"><span class="review-label">Community/Address to work in</span><span class="review-value" id="rev-community">–</span></div>
+        <div class="review-row"><span class="review-label">Work anywhere in district</span><span class="review-value" id="rev-willing">–</span></div>
+        <div class="review-row"><span class="review-label">Fully available</span><span class="review-value" id="rev-available">–</span></div>
+      </div>
+
+      <div class="review-section">
+        <div class="review-section-title">C. Education</div>
+        <div class="review-row"><span class="review-label">Highest education</span><span class="review-value" id="rev-education">–</span></div>
+        <div class="review-row"><span class="review-label">Year completed</span><span class="review-value" id="rev-year">–</span></div>
+        <div class="review-row"><span class="review-label">WASSCE/GCSE O'Level English</span><span class="review-value" id="rev-english">–</span></div>
+        <div class="review-row"><span class="review-label">WASSCE/GCSE O'Level Maths</span><span class="review-value" id="rev-maths">–</span></div>
+      </div>
+
+      <div class="review-section">
+        <div class="review-section-title">D. Experience</div>
+        <div class="review-row"><span class="review-label">Census – role</span><span class="review-value" id="rev-exp-census">–</span></div>
+        <div class="review-row"><span class="review-label">SLIHS – role</span><span class="review-value" id="rev-exp-slihs">–</span></div>
+        <div class="review-row"><span class="review-label">Agricultural Survey – role</span><span class="review-value" id="rev-exp-agri">–</span></div>
+        <div class="review-row"><span class="review-label">SLDHS – role</span><span class="review-value" id="rev-exp-sldhs">–</span></div>
+        <div class="review-row"><span class="review-label">SLMICS – role</span><span class="review-value" id="rev-exp-slmics">–</span></div>
+        <div class="review-row"><span class="review-label">PSSNYE (SSN) – role</span><span class="review-value" id="rev-exp-pssnye">–</span></div>
+        <div class="review-row"><span class="review-label">Other Survey – role</span><span class="review-value" id="rev-exp-other">–</span></div>
+        <div class="review-row"><span class="review-label">Other experience</span><span class="review-value" id="rev-otherexp">–</span></div>
+      </div>
+
+      <div class="review-section">
+        <div class="review-section-title">E. Skills</div>
+        <div class="review-row"><span class="review-label">Languages – speak</span><span class="review-value" id="rev-lang-speak">–</span></div>
+        <div class="review-row"><span class="review-label">Languages – write</span><span class="review-value" id="rev-lang-write">–</span></div>
+        <div class="review-row"><span class="review-label">Languages – read</span><span class="review-value" id="rev-lang-read">–</span></div>
+        <div class="review-row"><span class="review-label">Owns smartphone</span><span class="review-value" id="rev-smartphone">–</span></div>
+        <div class="review-row"><span class="review-label">Tablet comfort</span><span class="review-value" id="rev-tablet">–</span></div>
+      </div>
+
+      <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee;">
+        <label class="declaration-item">
+          <input type="checkbox" id="decl1">
+          <span>The information given is true; false statements disqualify me.</span>
+        </label>
+        <label class="declaration-item">
+          <input type="checkbox" id="decl2">
+          <span>I am available for the full training and enumeration period.</span>
+        </label>
+        <label class="declaration-item">
+          <input type="checkbox" id="decl3">
+          <span>I consent to Statistics Sierra Leone processing this data for recruitment.</span>
+        </label>
+        <label class="declaration-item">
+          <input type="checkbox" id="decl4">
+          <span>I understand engagement is temporary and conditional on training performance.</span>
+        </label>
+      </div>
+
+      <button class="btn-primary" style="margin-top: 20px;" onclick="submitApplication()">Submit my application</button>
+    </div>
+    <div class="footer">Statistics Sierra Leone · 1 King Street, Freetown · Recruitment is FREE – never pay anyone.</div>
+  </div>
+
+</div>
+
+<script>
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function goToLanding() { showScreen('screen-landing'); }
+  function goToOTP() {
+    const mobile = document.getElementById('mobile-landing').value;
+    if (mobile) document.getElementById('otp-number-display').textContent = mobile;
+    showScreen('screen-otp');
+    startResendTimer();
+  }
+  function verifyOTP() {
+    const code = document.getElementById('otp-code').value;
+    if (code.length === 6) showScreen('screen-personal');
+    else alert('Please enter the 6-digit code sent to your phone.');
+  }
+  function goToPersonal() { showScreen('screen-personal'); }
+  function goToPosition() { showScreen('screen-position'); }
+  function goToEducation() { showScreen('screen-education'); }
+  function goToExperience() { showScreen('screen-experience'); }
+  function goToSkills() { showScreen('screen-skills'); }
+  function goToReview() { populateReview(); showScreen('screen-review'); }
+
+  function toggleLanding() {
+    const content = document.getElementById('landing-content');
+    const toggle = document.getElementById('readToggle');
+    if (content.style.display === 'none') {
+      content.style.display = 'block';
+      toggle.textContent = 'Read less ▴';
+    } else {
+      content.style.display = 'none';
+      toggle.textContent = 'Read more ▾';
+    }
+  }
+
+  let resendSeconds = 52, resendInterval;
+  function startResendTimer() {
+    resendSeconds = 52;
+    document.getElementById('resendTimer').textContent = resendSeconds;
+    document.getElementById('resendBtn').disabled = true;
+    document.getElementById('resendBtn').innerHTML = 'Resend code (<span id="resendTimer">52</span>s)';
+    clearInterval(resendInterval);
+    resendInterval = setInterval(() => {
+      resendSeconds--;
+      const timerEl = document.getElementById('resendTimer');
+      if (timerEl) timerEl.textContent = resendSeconds;
+      if (resendSeconds <= 0) {
+        clearInterval(resendInterval);
+        document.getElementById('resendBtn').disabled = false;
+        document.getElementById('resendBtn').textContent = 'Resend code';
+      }
+    }, 1000);
+  }
+  function resendCode() {
+    if (resendSeconds <= 0) {
+      alert('A new code has been sent to your phone.');
+      startResendTimer();
+    }
+  }
+
+  function getRadioValue(name) {
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : '–';
+  }
+
+  function populateReview() {
+    document.getElementById('rev-firstname').textContent = document.getElementById('firstname').value || '–';
+    document.getElementById('rev-othername').textContent = document.getElementById('othername').value || '–';
+    document.getElementById('rev-surname').textContent = document.getElementById('surname').value || '–';
+    document.getElementById('rev-sex').textContent = getRadioValue('sex');
+    document.getElementById('rev-dob').textContent = document.getElementById('dob').value || '–';
+    document.getElementById('rev-nin').textContent = document.getElementById('nin').value || '–';
+    document.getElementById('rev-altphone').textContent = document.getElementById('altphone').value || '–';
+    document.getElementById('rev-email').textContent = document.getElementById('email').value || '–';
+
+    document.getElementById('rev-district').textContent = document.getElementById('district').value || '–';
+    document.getElementById('rev-chiefdom').textContent = document.getElementById('chiefdom').value || '–';
+    document.getElementById('rev-section').textContent = document.getElementById('section').value || '–';
+    document.getElementById('rev-community').textContent = document.getElementById('community').value || '–';
+    document.getElementById('rev-willing').textContent = getRadioValue('willing');
+    document.getElementById('rev-available').textContent = getRadioValue('available');
+
+    document.getElementById('rev-education').textContent = getRadioValue('education');
+    document.getElementById('rev-year').textContent = document.getElementById('yearcompleted').value || '–';
+    document.getElementById('rev-english').textContent = getRadioValue('english');
+    document.getElementById('rev-maths').textContent = getRadioValue('maths');
+
+    document.getElementById('rev-exp-census').textContent = getRadioValue('exp_census');
+    document.getElementById('rev-exp-slihs').textContent = getRadioValue('exp_slihs');
+    document.getElementById('rev-exp-agri').textContent = getRadioValue('exp_agri');
+    document.getElementById('rev-exp-sldhs').textContent = getRadioValue('exp_sldhs');
+    document.getElementById('rev-exp-slmics').textContent = getRadioValue('exp_slmics');
+    document.getElementById('rev-exp-pssnye').textContent = getRadioValue('exp_pssnye');
+    document.getElementById('rev-exp-other').textContent = getRadioValue('exp_other');
+    document.getElementById('rev-otherexp').textContent = document.getElementById('otherexperience').value || '–';
+
+    const languages = ['Krio','Mende','Temne','Limba','Kono','Fullah','Susu','Kuranko','Sherbro','Kissi','Loko','Mandingo','Yalunka','Kloo','Vai','Krim','Other'];
+    const speak = [], write = [], read = [];
+    languages.forEach(lang => {
+      const key = lang.toLowerCase();
+      if (document.querySelector(`input[name="lang_${key}_speak"]`)?.checked) speak.push(lang);
+      if (document.querySelector(`input[name="lang_${key}_write"]`)?.checked) write.push(lang);
+      if (document.querySelector(`input[name="lang_${key}_read"]`)?.checked) read.push(lang);
+    });
+    document.getElementById('rev-lang-speak').textContent = speak.length ? speak.join(', ') : '–';
+    document.getElementById('rev-lang-write').textContent = write.length ? write.join(', ') : '–';
+    document.getElementById('rev-lang-read').textContent = read.length ? read.join(', ') : '–';
+    document.getElementById('rev-smartphone').textContent = getRadioValue('smartphone');
+    document.getElementById('rev-tablet').textContent = getRadioValue('tablet');
+  }
+
+  function submitApplication() {
+    const decls = ['decl1','decl2','decl3','decl4'];
+    const allChecked = decls.every(id => document.getElementById(id).checked);
+    if (!allChecked) {
+      alert('Please tick all four declarations before submitting.');
+      return;
+    }
+    alert('✅ Application submitted successfully!\n\nYour application is in the screening queue. You will be contacted via SMS by Statistics Sierra Leone.');
+  }
+
+  document.getElementById('otp-code').addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); });
+  document.getElementById('nin').addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); });
+  document.getElementById('yearcompleted').addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); });
+</script>
+
+</body>
+</html>
