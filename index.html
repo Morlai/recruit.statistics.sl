@@ -241,7 +241,7 @@
           <p class="body-text" style="margin-bottom:4px;">Applicants must:</p>
           <ul class="bullet-list">
             <li>Be a Sierra Leonean citizen</li>
-            <li>Hold a Bachelor's degree in statistics, mathematics, GIS, ICT, social sciences or a related field, a Higher National Diploma (HND) or an Ordinary National Diploma (ON) from a recognised institution (a Master's degree is an added advantage)</li>
+            <li>Hold a Bachelor's degree in statistics, mathematics, GIS, ICT, social sciences or a related field, a Higher National Diploma (HND) or an Ordinary National Diploma (OND) from a recognised institution (a Master's degree is an added advantage)</li>
             <li>Have at least three (3) years of experience in census and survey data collection</li>
             <li>Have ICT and digital data-collection skills</li>
             <li>Have knowledge of the local area, community and language</li>
@@ -259,7 +259,7 @@
           <div class="important-notice">
             <strong>IMPORTANT NOTICE</strong> — Recruitment is <strong>FREE</strong>. Applicants must not pay any money to anyone at any stage of the recruitment process. Only shortlisted candidates who successfully complete the required training and assessment will be considered for final deployment.
           </div>
-          <div class="signed">Signed: Statistician General</div recent>
+          <div class="signed">Signed: Statistician General</div>
         </div>
 
         <div class="read-toggle" id="readToggle" onclick="toggleLanding()">Read less ▴</div>
@@ -403,26 +403,46 @@
         <label class="field-label">Position applying for</label>
         <input type="text" class="form-input readonly-input" value="Field Personnel" readonly style="margin-bottom:0;">
       </div>
+      
+      <!-- UPDATED: All 16 Official Districts of Sierra Leone grouped by Province -->
       <div class="field-group">
         <label class="field-label" for="district">District to work in</label>
         <select class="select-input" id="district">
           <option value="">Select district</option>
-          <option value="Bo">Bo – Southern</option>
-          <option value="Bombali">Bombali – Northern</option>
-          <option value="Bonthe">Bonthe – Southern</option>
-          <option value="Kailahun">Kailahun – Eastern</option>
-          <option value="Kambia">Kambia – Northern</option>
-          <option value="Kenema">Kenema – Eastern</option>
-          <option value="Koinadugu">Koinadugu – Northern</option>
-          <option value="Kono">Kono – Eastern</option>
-          <option value="Moyamba">Moyamba – Southern</option>
-          <option value="Port Loko">Port Loko – Northern</option>
-          <option value="Pujehun">Pujehun – Southern</option>
-          <option value="Tonkolili">Tonkolili – Northern</option>
-          <option value="Western Area Urban">Western Area Urban</option>
-          <option value="Western Area Rural">Western Area Rural</option>
+          
+          <optgroup label="Eastern Province">
+            <option value="Kailahun">Kailahun</option>
+            <option value="Kenema">Kenema</option>
+            <option value="Kono">Kono</option>
+          </optgroup>
+          
+          <optgroup label="Northern Province">
+            <option value="Bombali">Bombali</option>
+            <option value="Falaba">Falaba</option>
+            <option value="Koinadugu">Koinadugu</option>
+            <option value="Port Loko">Port Loko</option>
+            <option value="Tonkolili">Tonkolili</option>
+          </optgroup>
+          
+          <optgroup label="North West Province">
+            <option value="Kambia">Kambia</option>
+            <option value="Karene">Karene</option>
+          </optgroup>
+          
+          <optgroup label="Southern Province">
+            <option value="Bo">Bo</option>
+            <option value="Bonthe">Bonthe</option>
+            <option value="Moyamba">Moyamba</option>
+            <option value="Pujehun">Pujehun</option>
+          </optgroup>
+          
+          <optgroup label="Western Area">
+            <option value="Western Area Urban">Western Area Urban</option>
+            <option value="Western Area Rural">Western Area Rural</option>
+          </optgroup>
         </select>
       </div>
+
       <div class="field-group">
         <label class="field-label" for="chiefdom">Chiefdom</label>
         <select class="select-input" id="chiefdom">
@@ -779,7 +799,6 @@
 </div>
 
 <script>
-  // Global variable to store the simulated OTP
   let generatedOTP = '';
 
   function showScreen(id) {
@@ -796,15 +815,10 @@
       alert('Please enter a valid mobile number.');
       return;
     }
-    
-    // Generate a random 6-digit code
     generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-    
-    // Simulate sending SMS (In a real app, this would be an API call to an SMS gateway like Twilio or Africa's Talking)
     alert(`📱 SIMULATION: Verification code ${generatedOTP} has been sent to ${mobile}.\n\n(In a live environment, this would be an actual SMS)`);
-    
     document.getElementById('otp-number-display').textContent = mobile;
-    document.getElementById('otp-code').value = ''; // clear previous
+    document.getElementById('otp-code').value = '';
     showScreen('screen-otp');
     startResendTimer();
   }
