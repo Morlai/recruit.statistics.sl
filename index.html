@@ -93,6 +93,7 @@
   }
   .form-input:focus { outline: none; border-color: #1a6b3c; box-shadow: 0 0 0 3px rgba(26,107,60,0.1); }
   .form-input::placeholder { color: #999; }
+  .form-input:invalid { border-color: #e53935; }
 
   .btn-primary {
     width: 100%; padding: 14px; background: #1a6b3c; color: white;
@@ -267,8 +268,8 @@
         <div class="apply-section">
           <div class="section-heading">Apply online</div>
           <p class="apply-text">You need your <strong>NIN</strong> (National ID Number) and a phone that can receive SMS. The form takes about 8 minutes and you can save and continue at any time.</p>
-          <label class="form-label" for="mobile-landing">Mobile number</label>
-          <input type="tel" class="form-input" id="mobile-landing" placeholder="e.g., 076000000" value="">
+          <label class="form-label" for="mobile-landing">Mobile number <span style="color:#e53935">*</span></label>
+          <input type="tel" class="form-input" id="mobile-landing" placeholder="e.g., 076123456" pattern="[0-9]{9}" maxlength="9" required>
           <button class="btn-primary" onclick="goToOTP()">Send my verification code</button>
           <div class="already-applied">Already applied? <a href="#">Your application is in the screening queue.</a> You will be contacted via SMS by Statistics Sierra Leone.</div>
         </div>
@@ -293,8 +294,8 @@
     <div class="banner banner-info">A code was sent by SMS. It expires in 10 minutes.</div>
     <div class="otp-card">
       <div class="otp-title">Enter the code sent to <a href="#" id="otp-number-display">031001122</a></div>
-      <label class="form-label" for="otp-code">6-digit code</label>
-      <input type="text" class="otp-input" id="otp-code" maxlength="6" placeholder="------" inputmode="numeric">
+      <label class="form-label" for="otp-code">6-digit code <span style="color:#e53935">*</span></label>
+      <input type="text" class="otp-input" id="otp-code" maxlength="6" placeholder="------" inputmode="numeric" pattern="[0-9]{6}" required>
       <button class="btn-primary" onclick="verifyOTP()">Verify</button>
       <button class="resend-btn" id="resendBtn" onclick="resendCode()">Resend code (<span id="resendTimer">52</span>s)</button>
     </div>
@@ -327,43 +328,43 @@
 
     <div class="card" style="margin-top: 12px;">
       <div class="form-section-title">A. Personal Information</div>
-      <div class="form-section-subtitle">Names exactly as on your national ID.</div>
+      <div class="form-section-subtitle">Names exactly as on your national ID. All fields are mandatory.</div>
 
       <div class="field-group">
-        <label class="field-label" for="firstname">First name</label>
-        <input type="text" class="form-input" id="firstname" style="margin-bottom:0;">
+        <label class="field-label" for="firstname">First name <span style="color:#e53935">*</span></label>
+        <input type="text" class="form-input" id="firstname" required>
       </div>
       <div class="field-group">
-        <label class="field-label" for="othername">Other name(s)</label>
-        <input type="text" class="form-input" id="othername" style="margin-bottom:0;">
+        <label class="field-label" for="othername">Other name(s) <span style="color:#e53935">*</span></label>
+        <input type="text" class="form-input" id="othername" required>
       </div>
       <div class="field-group">
-        <label class="field-label" for="surname">Surname</label>
-        <input type="text" class="form-input" id="surname" style="margin-bottom:0;">
+        <label class="field-label" for="surname">Surname <span style="color:#e53935">*</span></label>
+        <input type="text" class="form-input" id="surname" required>
       </div>
       <div class="field-group">
-        <label class="field-label">Sex</label>
+        <label class="field-label">Sex <span style="color:#e53935">*</span></label>
         <div class="radio-group">
-          <label class="radio-pill"><input type="radio" name="sex" value="Male"> Male</label>
-          <label class="radio-pill"><input type="radio" name="sex" value="Female"> Female</label>
+          <label class="radio-pill"><input type="radio" name="sex" value="Male" required> Male</label>
+          <label class="radio-pill"><input type="radio" name="sex" value="Female" required> Female</label>
         </div>
       </div>
       <div class="field-group">
-        <label class="field-label" for="dob">Date of birth</label>
-        <input type="date" class="form-input" id="dob" style="margin-bottom:0;">
+        <label class="field-label" for="dob">Date of birth <span style="color:#e53935">*</span></label>
+        <input type="date" class="form-input" id="dob" required>
       </div>
       <div class="field-group">
-        <label class="field-label" for="nin">NIN (National ID Number)</label>
-        <input type="text" class="form-input" id="nin" placeholder="15-digit NIN" maxlength="15" style="margin-bottom:0;">
+        <label class="field-label" for="nin">NIN (National ID Number) <span style="color:#e53935">*</span></label>
+        <input type="text" class="form-input" id="nin" placeholder="15-digit NIN" maxlength="15" pattern="[0-9]{15}" required>
         <div class="field-hint">Checked against all applications – one per person.</div>
       </div>
       <div class="field-group">
-        <label class="field-label" for="altphone">Alternate phone (optional)</label>
-        <input type="tel" class="form-input" id="altphone" style="margin-bottom:0;">
+        <label class="field-label" for="altphone">Alternate phone (9 digits) <span style="color:#e53935">*</span></label>
+        <input type="tel" class="form-input" id="altphone" placeholder="e.g., 076123456" pattern="[0-9]{9}" maxlength="9" required>
       </div>
       <div class="field-group">
-        <label class="field-label" for="email">Email (optional)</label>
-        <input type="email" class="form-input" id="email" style="margin-bottom:0;">
+        <label class="field-label" for="email">Email <span style="color:#e53935">*</span></label>
+        <input type="email" class="form-input" id="email" required>
       </div>
 
       <button class="btn-primary" onclick="goToPosition()">Save &amp; Continue</button>
@@ -397,25 +398,22 @@
 
     <div class="card" style="margin-top: 12px;">
       <div class="form-section-title">B. Position &amp; Location</div>
-      <div class="form-section-subtitle">Posts are allocated by district.</div>
+      <div class="form-section-subtitle">Posts are allocated by district. All fields are mandatory.</div>
 
       <div class="field-group">
-        <label class="field-label">Position applying for</label>
-        <input type="text" class="form-input readonly-input" value="Field Personnel" readonly style="margin-bottom:0;">
+        <label class="field-label">Position applying for <span style="color:#e53935">*</span></label>
+        <input type="text" class="form-input readonly-input" value="Field Personnel" readonly>
       </div>
       
-      <!-- UPDATED: All 16 Official Districts of Sierra Leone grouped by Province -->
       <div class="field-group">
-        <label class="field-label" for="district">District to work in</label>
-        <select class="select-input" id="district">
+        <label class="field-label" for="district">District to work in <span style="color:#e53935">*</span></label>
+        <select class="select-input" id="district" required>
           <option value="">Select district</option>
-          
           <optgroup label="Eastern Province">
             <option value="Kailahun">Kailahun</option>
             <option value="Kenema">Kenema</option>
             <option value="Kono">Kono</option>
           </optgroup>
-          
           <optgroup label="Northern Province">
             <option value="Bombali">Bombali</option>
             <option value="Falaba">Falaba</option>
@@ -423,19 +421,16 @@
             <option value="Port Loko">Port Loko</option>
             <option value="Tonkolili">Tonkolili</option>
           </optgroup>
-          
           <optgroup label="North West Province">
             <option value="Kambia">Kambia</option>
             <option value="Karene">Karene</option>
           </optgroup>
-          
           <optgroup label="Southern Province">
             <option value="Bo">Bo</option>
             <option value="Bonthe">Bonthe</option>
             <option value="Moyamba">Moyamba</option>
             <option value="Pujehun">Pujehun</option>
           </optgroup>
-          
           <optgroup label="Western Area">
             <option value="Western Area Urban">Western Area Urban</option>
             <option value="Western Area Rural">Western Area Rural</option>
@@ -444,9 +439,9 @@
       </div>
 
       <div class="field-group">
-        <label class="field-label" for="chiefdom">Chiefdom</label>
-        <select class="select-input" id="chiefdom">
-          <option value="-">-</option>
+        <label class="field-label" for="chiefdom">Chiefdom <span style="color:#e53935">*</span></label>
+        <select class="select-input" id="chiefdom" required>
+          <option value="">Select chiefdom</option>
           <option value="Badjia">Badjia</option>
           <option value="Bo City">Bo City</option>
           <option value="Bumpeh">Bumpeh</option>
@@ -454,28 +449,28 @@
         </select>
       </div>
       <div class="field-group">
-        <label class="field-label" for="section">Section to work in</label>
-        <select class="select-input" id="section">
-          <option value="-">-</option>
+        <label class="field-label" for="section">Section to work in <span style="color:#e53935">*</span></label>
+        <select class="select-input" id="section" required>
+          <option value="">Select section</option>
           <option value="Sei">Sei</option>
         </select>
       </div>
       <div class="field-group">
-        <label class="field-label" for="community">Community/Address to work in</label>
-        <input type="text" class="form-input" id="community" style="margin-bottom:0;">
+        <label class="field-label" for="community">Community/Address to work in <span style="color:#e53935">*</span></label>
+        <input type="text" class="form-input" id="community" required>
       </div>
       <div class="field-group">
-        <label class="field-label">Willing to work anywhere in your district?</label>
+        <label class="field-label">Willing to work anywhere in your district? <span style="color:#e53935">*</span></label>
         <div class="radio-group">
-          <label class="radio-pill"><input type="radio" name="willing" value="Yes"> Yes</label>
-          <label class="radio-pill"><input type="radio" name="willing" value="No"> No</label>
+          <label class="radio-pill"><input type="radio" name="willing" value="Yes" required> Yes</label>
+          <label class="radio-pill"><input type="radio" name="willing" value="No" required> No</label>
         </div>
       </div>
       <div class="field-group">
-        <label class="field-label">Available for the FULL training and enumeration period?</label>
+        <label class="field-label">Available for the FULL training and enumeration period? <span style="color:#e53935">*</span></label>
         <div class="radio-group">
-          <label class="radio-pill"><input type="radio" name="available" value="Yes"> Yes</label>
-          <label class="radio-pill"><input type="radio" name="available" value="No"> No</label>
+          <label class="radio-pill"><input type="radio" name="available" value="Yes" required> Yes</label>
+          <label class="radio-pill"><input type="radio" name="available" value="No" required> No</label>
         </div>
       </div>
 
@@ -513,38 +508,38 @@
 
     <div class="card" style="margin-top: 12px;">
       <div class="form-section-title">C. Education</div>
-      <div class="form-section-subtitle">Bring original certificates to interview.</div>
+      <div class="form-section-subtitle">Bring original certificates to interview. All fields are mandatory.</div>
 
       <div class="field-group">
-        <label class="field-label">Highest level completed</label>
+        <label class="field-label">Highest level completed <span style="color:#e53935">*</span></label>
         <div class="radio-grid">
-          <label class="radio-pill"><input type="radio" name="education" value="BECE"> BECE</label>
-          <label class="radio-pill"><input type="radio" name="education" value="WASSCE"> WASSCE</label>
-          <label class="radio-pill"><input type="radio" name="education" value="Certificate"> Certificate</label>
-          <label class="radio-pill"><input type="radio" name="education" value="Diploma"> Diploma</label>
-          <label class="radio-pill"><input type="radio" name="education" value="GCSE O'Level"> GCSE O' Level</label>
-          <label class="radio-pill"><input type="radio" name="education" value="A'Level"> A' Level</label>
-          <label class="radio-pill" style="grid-column: 1 / -1;"><input type="radio" name="education" value="Degree or higher"> Degree or higher</label>
+          <label class="radio-pill"><input type="radio" name="education" value="BECE" required> BECE</label>
+          <label class="radio-pill"><input type="radio" name="education" value="WASSCE" required> WASSCE</label>
+          <label class="radio-pill"><input type="radio" name="education" value="Certificate" required> Certificate</label>
+          <label class="radio-pill"><input type="radio" name="education" value="Diploma" required> Diploma</label>
+          <label class="radio-pill"><input type="radio" name="education" value="GCSE O'Level" required> GCSE O' Level</label>
+          <label class="radio-pill"><input type="radio" name="education" value="A'Level" required> A' Level</label>
+          <label class="radio-pill" style="grid-column: 1 / -1;"><input type="radio" name="education" value="Degree or higher" required> Degree or higher</label>
         </div>
       </div>
       <div class="field-group">
-        <label class="field-label" for="yearcompleted">Year completed (YYYY)</label>
-        <input type="text" class="form-input" id="yearcompleted" placeholder="YYYY" maxlength="4" inputmode="numeric" style="margin-bottom:0;">
+        <label class="field-label" for="yearcompleted">Year completed (YYYY) <span style="color:#e53935">*</span></label>
+        <input type="text" class="form-input" id="yearcompleted" placeholder="YYYY" maxlength="4" pattern="[0-9]{4}" inputmode="numeric" required>
       </div>
       <div class="field-group">
-        <label class="field-label">WASSCE / GCSE O'Level English pass?</label>
+        <label class="field-label">WASSCE / GCSE O'Level English pass? <span style="color:#e53935">*</span></label>
         <div class="radio-grid-3">
-          <label class="radio-pill"><input type="radio" name="english" value="Yes"> Yes</label>
-          <label class="radio-pill"><input type="radio" name="english" value="No"> No</label>
-          <label class="radio-pill"><input type="radio" name="english" value="Not applicable"> Not applicable</label>
+          <label class="radio-pill"><input type="radio" name="english" value="Yes" required> Yes</label>
+          <label class="radio-pill"><input type="radio" name="english" value="No" required> No</label>
+          <label class="radio-pill"><input type="radio" name="english" value="Not applicable" required> Not applicable</label>
         </div>
       </div>
       <div class="field-group">
-        <label class="field-label">WASSCE / GCSE O'Level Maths pass?</label>
+        <label class="field-label">WASSCE / GCSE O'Level Maths pass? <span style="color:#e53935">*</span></label>
         <div class="radio-grid-3">
-          <label class="radio-pill"><input type="radio" name="maths" value="Yes"> Yes</label>
-          <label class="radio-pill"><input type="radio" name="maths" value="No"> No</label>
-          <label class="radio-pill"><input type="radio" name="maths" value="Not applicable"> Not applicable</label>
+          <label class="radio-pill"><input type="radio" name="maths" value="Yes" required> Yes</label>
+          <label class="radio-pill"><input type="radio" name="maths" value="No" required> No</label>
+          <label class="radio-pill"><input type="radio" name="maths" value="Not applicable" required> Not applicable</label>
         </div>
       </div>
 
@@ -582,9 +577,9 @@
 
     <div class="card" style="margin-top: 12px;">
       <div class="form-section-title">D. Experience</div>
-      <div class="form-section-subtitle">Previous Stats SL work is verified against our records. For each survey, tick the role you held.</div>
+      <div class="form-section-subtitle">Previous Stats SL work is verified against our records. All fields are mandatory.</div>
 
-      <div class="field-label" style="margin-bottom: 8px;">Previous Stats SL field work – role per survey</div>
+      <div class="field-label" style="margin-bottom: 8px;">Previous Stats SL field work – role per survey <span style="color:#e53935">*</span></div>
       <div style="overflow-x: auto;">
         <table class="exp-table">
           <thead>
@@ -598,20 +593,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Census</td><td><input type="radio" name="exp_census" value="Did Not Work" checked></td><td><input type="radio" name="exp_census" value="Enumerator"></td><td><input type="radio" name="exp_census" value="Supervisor"></td><td><input type="radio" name="exp_census" value="Listing"></td><td><input type="radio" name="exp_census" value="Other"></td></tr>
-            <tr><td>SLIHS</td><td><input type="radio" name="exp_slihs" value="Did Not Work" checked></td><td><input type="radio" name="exp_slihs" value="Enumerator"></td><td><input type="radio" name="exp_slihs" value="Supervisor"></td><td><input type="radio" name="exp_slihs" value="Listing"></td><td><input type="radio" name="exp_slihs" value="Other"></td></tr>
-            <tr><td>Agricultural Survey</td><td><input type="radio" name="exp_agri" value="Did Not Work" checked></td><td><input type="radio" name="exp_agri" value="Enumerator"></td><td><input type="radio" name="exp_agri" value="Supervisor"></td><td><input type="radio" name="exp_agri" value="Listing"></td><td><input type="radio" name="exp_agri" value="Other"></td></tr>
-            <tr><td>SLDHS</td><td><input type="radio" name="exp_sldhs" value="Did Not Work" checked></td><td><input type="radio" name="exp_sldhs" value="Enumerator"></td><td><input type="radio" name="exp_sldhs" value="Supervisor"></td><td><input type="radio" name="exp_sldhs" value="Listing"></td><td><input type="radio" name="exp_sldhs" value="Other"></td></tr>
-            <tr><td>SLMICS</td><td><input type="radio" name="exp_slmics" value="Did Not Work" checked></td><td><input type="radio" name="exp_slmics" value="Enumerator"></td><td><input type="radio" name="exp_slmics" value="Supervisor"></td><td><input type="radio" name="exp_slmics" value="Listing"></td><td><input type="radio" name="exp_slmics" value="Other"></td></tr>
-            <tr><td>PSSNYE (SSN)</td><td><input type="radio" name="exp_pssnye" value="Did Not Work" checked></td><td><input type="radio" name="exp_pssnye" value="Enumerator"></td><td><input type="radio" name="exp_pssnye" value="Supervisor"></td><td><input type="radio" name="exp_pssnye" value="Listing"></td><td><input type="radio" name="exp_pssnye" value="Other"></td></tr>
-            <tr><td>Other Survey</td><td><input type="radio" name="exp_other" value="Did Not Work" checked></td><td><input type="radio" name="exp_other" value="Enumerator"></td><td><input type="radio" name="exp_other" value="Supervisor"></td><td><input type="radio" name="exp_other" value="Listing"></td><td><input type="radio" name="exp_other" value="Other"></td></tr>
+            <tr><td>Census</td><td><input type="radio" name="exp_census" value="Did Not Work" checked required></td><td><input type="radio" name="exp_census" value="Enumerator"></td><td><input type="radio" name="exp_census" value="Supervisor"></td><td><input type="radio" name="exp_census" value="Listing"></td><td><input type="radio" name="exp_census" value="Other"></td></tr>
+            <tr><td>SLIHS</td><td><input type="radio" name="exp_slihs" value="Did Not Work" checked required></td><td><input type="radio" name="exp_slihs" value="Enumerator"></td><td><input type="radio" name="exp_slihs" value="Supervisor"></td><td><input type="radio" name="exp_slihs" value="Listing"></td><td><input type="radio" name="exp_slihs" value="Other"></td></tr>
+            <tr><td>Agricultural Survey</td><td><input type="radio" name="exp_agri" value="Did Not Work" checked required></td><td><input type="radio" name="exp_agri" value="Enumerator"></td><td><input type="radio" name="exp_agri" value="Supervisor"></td><td><input type="radio" name="exp_agri" value="Listing"></td><td><input type="radio" name="exp_agri" value="Other"></td></tr>
+            <tr><td>SLDHS</td><td><input type="radio" name="exp_sldhs" value="Did Not Work" checked required></td><td><input type="radio" name="exp_sldhs" value="Enumerator"></td><td><input type="radio" name="exp_sldhs" value="Supervisor"></td><td><input type="radio" name="exp_sldhs" value="Listing"></td><td><input type="radio" name="exp_sldhs" value="Other"></td></tr>
+            <tr><td>SLMICS</td><td><input type="radio" name="exp_slmics" value="Did Not Work" checked required></td><td><input type="radio" name="exp_slmics" value="Enumerator"></td><td><input type="radio" name="exp_slmics" value="Supervisor"></td><td><input type="radio" name="exp_slmics" value="Listing"></td><td><input type="radio" name="exp_slmics" value="Other"></td></tr>
+            <tr><td>PSSNYE (SSN)</td><td><input type="radio" name="exp_pssnye" value="Did Not Work" checked required></td><td><input type="radio" name="exp_pssnye" value="Enumerator"></td><td><input type="radio" name="exp_pssnye" value="Supervisor"></td><td><input type="radio" name="exp_pssnye" value="Listing"></td><td><input type="radio" name="exp_pssnye" value="Other"></td></tr>
+            <tr><td>Other Survey</td><td><input type="radio" name="exp_other" value="Did Not Work" checked required></td><td><input type="radio" name="exp_other" value="Enumerator"></td><td><input type="radio" name="exp_other" value="Supervisor"></td><td><input type="radio" name="exp_other" value="Listing"></td><td><input type="radio" name="exp_other" value="Other"></td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="field-group" style="margin-top: 20px;">
-        <label class="field-label" for="otherexperience">Other field/data experience (optional)</label>
-        <textarea class="form-input" id="otherexperience" rows="3" style="margin-bottom:0; resize: vertical;"></textarea>
+        <label class="field-label" for="otherexperience">Other field/data experience <span style="color:#e53935">*</span></label>
+        <textarea class="form-input" id="otherexperience" rows="3" style="margin-bottom:0; resize: vertical;" required></textarea>
       </div>
 
       <div class="btn-row">
@@ -648,9 +643,9 @@
 
     <div class="card" style="margin-top: 12px;">
       <div class="form-section-title">E. Skills</div>
-      <div class="form-section-subtitle">Tick what you can do in each language – proficiency guides your deployment.</div>
+      <div class="form-section-subtitle">Tick what you can do in each language. All fields are mandatory.</div>
 
-      <div class="field-label" style="margin-bottom: 8px;">Language proficiency</div>
+      <div class="field-label" style="margin-bottom: 8px;">Language proficiency <span style="color:#e53935">*</span></div>
       <div style="overflow-x: auto;">
         <table class="lang-table">
           <thead>
@@ -677,22 +672,22 @@
           </tbody>
         </table>
       </div>
-      <div class="field-hint" style="margin-top: 8px; margin-bottom: 16px;">Tick SPEAK for at least one language.</div>
+      <div class="field-hint" style="margin-top: 8px; margin-bottom: 16px; color: #e53935; font-weight: 600;">⚠️ You MUST tick SPEAK for at least one language.</div>
 
       <div class="field-group">
-        <label class="field-label">Do you own a smartphone?</label>
+        <label class="field-label">Do you own a smartphone? <span style="color:#e53935">*</span></label>
         <div class="radio-group">
-          <label class="radio-pill"><input type="radio" name="smartphone" value="Yes"> Yes</label>
-          <label class="radio-pill"><input type="radio" name="smartphone" value="No"> No</label>
+          <label class="radio-pill"><input type="radio" name="smartphone" value="Yes" required> Yes</label>
+          <label class="radio-pill"><input type="radio" name="smartphone" value="No" required> No</label>
         </div>
       </div>
 
       <div class="field-group">
-        <label class="field-label">Comfortable using tablet for data entry</label>
+        <label class="field-label">Comfortable using tablet for data entry <span style="color:#e53935">*</span></label>
         <div class="radio-grid">
-          <label class="radio-pill"><input type="radio" name="tablet" value="1 - New to it"> 1 – New to it</label>
-          <label class="radio-pill"><input type="radio" name="tablet" value="2 - Some use"> 2 – Some use</label>
-          <label class="radio-pill" style="grid-column: 1 / -1;"><input type="radio" name="tablet" value="3 - Confident"> 3 – Confident</label>
+          <label class="radio-pill"><input type="radio" name="tablet" value="1 - New to it" required> 1 – New to it</label>
+          <label class="radio-pill"><input type="radio" name="tablet" value="2 - Some use" required> 2 – Some use</label>
+          <label class="radio-pill" style="grid-column: 1 / -1;"><input type="radio" name="tablet" value="3 - Confident" required> 3 – Confident</label>
         </div>
       </div>
 
@@ -785,10 +780,10 @@
       </div>
 
       <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee;">
-        <label class="declaration-item"><input type="checkbox" id="decl1"><span>The information given is true; false statements disqualify me.</span></label>
-        <label class="declaration-item"><input type="checkbox" id="decl2"><span>I am available for the full training and enumeration period.</span></label>
-        <label class="declaration-item"><input type="checkbox" id="decl3"><span>I consent to Statistics Sierra Leone processing this data for recruitment.</span></label>
-        <label class="declaration-item"><input type="checkbox" id="decl4"><span>I understand engagement is temporary and conditional on training performance.</span></label>
+        <label class="declaration-item"><input type="checkbox" id="decl1" required><span>The information given is true; false statements disqualify me. <span style="color:#e53935">*</span></span></label>
+        <label class="declaration-item"><input type="checkbox" id="decl2" required><span>I am available for the full training and enumeration period. <span style="color:#e53935">*</span></span></label>
+        <label class="declaration-item"><input type="checkbox" id="decl3" required><span>I consent to Statistics Sierra Leone processing this data for recruitment. <span style="color:#e53935">*</span></span></label>
+        <label class="declaration-item"><input type="checkbox" id="decl4" required><span>I understand engagement is temporary and conditional on training performance. <span style="color:#e53935">*</span></span></label>
       </div>
 
       <button class="btn-primary" style="margin-top: 20px;" onclick="submitApplication()">Submit my application</button>
@@ -810,14 +805,16 @@
   function goToLanding() { showScreen('screen-landing'); }
   
   function goToOTP() {
-    const mobile = document.getElementById('mobile-landing').value;
-    if (!mobile || mobile.length < 9) {
-      alert('Please enter a valid mobile number.');
+    const mobile = document.getElementById('mobile-landing');
+    // Strict 9-digit validation
+    if (!/^\d{9}$/.test(mobile.value)) {
+      alert('Please enter a valid 9-digit mobile number (e.g., 076123456).');
+      mobile.focus();
       return;
     }
     generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-    alert(`📱 SIMULATION: Verification code ${generatedOTP} has been sent to ${mobile}.\n\n(In a live environment, this would be an actual SMS)`);
-    document.getElementById('otp-number-display').textContent = mobile;
+    alert(`📱 SIMULATION: Verification code ${generatedOTP} has been sent to ${mobile.value}.\n\n(In a live environment, this would be an actual SMS)`);
+    document.getElementById('otp-number-display').textContent = mobile.value;
     document.getElementById('otp-code').value = '';
     showScreen('screen-otp');
     startResendTimer();
@@ -825,6 +822,10 @@
 
   function verifyOTP() {
     const code = document.getElementById('otp-code').value;
+    if (!/^\d{6}$/.test(code)) {
+      alert('Please enter a valid 6-digit code.');
+      return;
+    }
     if (code === generatedOTP) {
       showScreen('screen-personal');
     } else {
@@ -833,12 +834,123 @@
   }
 
   function goToPersonal() { showScreen('screen-personal'); }
-  function goToPosition() { showScreen('screen-position'); }
-  function goToEducation() { showScreen('screen-education'); }
-  function goToExperience() { showScreen('screen-experience'); }
-  function goToSkills() { showScreen('screen-skills'); }
+  
+  function goToPosition() {
+    // Validate all personal info fields
+    const fields = [
+      { id: 'firstname', name: 'First name' },
+      { id: 'othername', name: 'Other name(s)' },
+      { id: 'surname', name: 'Surname' },
+      { id: 'dob', name: 'Date of birth' },
+      { id: 'nin', name: 'NIN' },
+      { id: 'altphone', name: 'Alternate phone' },
+      { id: 'email', name: 'Email' }
+    ];
+    
+    for (let field of fields) {
+      if (!document.getElementById(field.id).value.trim()) {
+        alert(`Please fill in the ${field.name} field.`);
+        document.getElementById(field.id).focus();
+        return;
+      }
+    }
+    
+    if (!document.querySelector('input[name="sex"]:checked')) {
+      alert('Please select your sex.');
+      return;
+    }
+    
+    if (!/^\d{15}$/.test(document.getElementById('nin').value)) {
+      alert('NIN must be exactly 15 digits.');
+      document.getElementById('nin').focus();
+      return;
+    }
+    
+    if (!/^\d{9}$/.test(document.getElementById('altphone').value)) {
+      alert('Alternate phone must be exactly 9 digits.');
+      document.getElementById('altphone').focus();
+      return;
+    }
+    
+    showScreen('screen-position');
+  }
+
+  function goToEducation() {
+    if (!document.getElementById('district').value) {
+      alert('Please select a district.');
+      return;
+    }
+    if (!document.getElementById('chiefdom').value) {
+      alert('Please select a chiefdom.');
+      return;
+    }
+    if (!document.getElementById('section').value) {
+      alert('Please select a section.');
+      return;
+    }
+    if (!document.getElementById('community').value.trim()) {
+      alert('Please enter your community/address.');
+      return;
+    }
+    if (!document.querySelector('input[name="willing"]:checked')) {
+      alert('Please indicate if you are willing to work anywhere in your district.');
+      return;
+    }
+    if (!document.querySelector('input[name="available"]:checked')) {
+      alert('Please indicate your availability for the training and enumeration period.');
+      return;
+    }
+    showScreen('screen-education');
+  }
+
+  function goToExperience() {
+    if (!document.querySelector('input[name="education"]:checked')) {
+      alert('Please select your highest level of education.');
+      return;
+    }
+    const year = document.getElementById('yearcompleted').value;
+    if (!/^\d{4}$/.test(year) || year < 1950 || year > 2026) {
+      alert('Please enter a valid 4-digit year of completion.');
+      document.getElementById('yearcompleted').focus();
+      return;
+    }
+    if (!document.querySelector('input[name="english"]:checked')) {
+      alert('Please indicate your WASSCE/GCSE O\'Level English pass status.');
+      return;
+    }
+    if (!document.querySelector('input[name="maths"]:checked')) {
+      alert('Please indicate your WASSCE/GCSE O\'Level Maths pass status.');
+      return;
+    }
+    showScreen('screen-experience');
+  }
+
+  function goToSkills() {
+    if (!document.getElementById('otherexperience').value.trim()) {
+      alert('Please fill in the "Other field/data experience" field.');
+      document.getElementById('otherexperience').focus();
+      return;
+    }
+    showScreen('screen-skills');
+  }
   
   function goToReview() { 
+    // Validate at least one language is spoken
+    const speakChecked = document.querySelectorAll('input[name$="_speak"]:checked').length > 0;
+    if (!speakChecked) {
+      alert('⚠️ You MUST tick SPEAK for at least one language.');
+      return;
+    }
+    
+    if (!document.querySelector('input[name="smartphone"]:checked')) {
+      alert('Please indicate if you own a smartphone.');
+      return;
+    }
+    if (!document.querySelector('input[name="tablet"]:checked')) {
+      alert('Please indicate your comfort level with using a tablet.');
+      return;
+    }
+    
     populateReview(); 
     showScreen('screen-review'); 
   }
@@ -944,8 +1056,10 @@
     alert('✅ Application submitted successfully!\n\nYour application is in the screening queue. You will be contacted via SMS by Statistics Sierra Leone.');
   }
 
+  // Input formatting listeners
   document.getElementById('otp-code').addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); });
   document.getElementById('nin').addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); });
+  document.getElementById('altphone').addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); });
   document.getElementById('yearcompleted').addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); });
 </script>
 
