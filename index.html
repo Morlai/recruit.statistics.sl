@@ -37,7 +37,7 @@
   }
 
   .logo { width: 52px; height: 52px; flex-shrink: 0; }
-  .logo svg { width: 100%; height: 100%; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
 
   .header-text { flex: 1; }
   .header-org { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #555; text-transform: uppercase; }
@@ -45,7 +45,7 @@
 
   .banner { margin: 12px 16px; padding: 12px 14px; border-radius: 8px; font-size: 13px; line-height: 1.4; }
   .banner-warning { background: #fff8e1; border: 1px solid #ffe082; color: #5d4037; }
-  .banner-info { background: #fff8e1; border: 1px solid #ffe082; color: #5d4037; }
+  .banner-info { background: #e8f5e9; border: 1px solid #a5d6a7; color: #1b5e20; }
 
   .card {
     background: white;
@@ -181,125 +181,31 @@
   .screen { display: none; }
   .screen.active { display: block; }
 
-  /* Experience Table */
-  .exp-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    margin-top: 12px;
-  }
-  .exp-table th {
-    background: #f5f5f5;
-    padding: 8px 4px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #555;
-    border-bottom: 2px solid #ddd;
-  }
+  .exp-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px; }
+  .exp-table th { background: #f5f5f5; padding: 8px 4px; text-align: center; font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #555; border-bottom: 2px solid #ddd; }
   .exp-table th:first-child { text-align: left; padding-left: 8px; }
-  .exp-table td {
-    padding: 10px 4px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-  .exp-table td:first-child {
-    text-align: left;
-    padding-left: 8px;
-    font-weight: 600;
-    font-size: 12px;
-    color: #333;
-  }
-  .exp-table input[type="radio"] {
-    accent-color: #1a6b3c;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-  }
+  .exp-table td { padding: 10px 4px; text-align: center; border-bottom: 1px solid #eee; }
+  .exp-table td:first-child { text-align: left; padding-left: 8px; font-weight: 600; font-size: 12px; color: #333; }
+  .exp-table input[type="radio"] { accent-color: #1a6b3c; width: 18px; height: 18px; cursor: pointer; }
 
-  /* Skills Table */
-  .lang-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin-top: 12px;
-  }
-  .lang-table th {
-    background: #f5f5f5;
-    padding: 8px 6px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #555;
-    border-bottom: 2px solid #ddd;
-  }
+  .lang-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  .lang-table th { background: #f5f5f5; padding: 8px 6px; text-align: center; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #555; border-bottom: 2px solid #ddd; }
   .lang-table th:first-child { text-align: left; padding-left: 8px; }
-  .lang-table td {
-    padding: 8px 6px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-  .lang-table td:first-child {
-    text-align: left;
-    padding-left: 8px;
-    font-weight: 500;
-    color: #333;
-  }
-  .lang-table input[type="checkbox"] {
-    accent-color: #1a6b3c;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-  }
+  .lang-table td { padding: 8px 6px; text-align: center; border-bottom: 1px solid #eee; }
+  .lang-table td:first-child { text-align: left; padding-left: 8px; font-weight: 500; color: #333; }
+  .lang-table input[type="checkbox"] { accent-color: #1a6b3c; width: 18px; height: 18px; cursor: pointer; }
 
-  /* Review Section */
-  .review-section {
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eee;
-  }
+  .review-section { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #eee; }
   .review-section:last-of-type { border-bottom: none; }
-  .review-section-title {
-    font-size: 12px;
-    font-weight: 700;
-    color: #1a6b3c;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-  }
-  .review-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    font-size: 13px;
-  }
+  .review-section-title { font-size: 12px; font-weight: 700; color: #1a6b3c; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .review-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; }
   .review-label { color: #666; font-weight: 500; }
   .review-value { color: #1a1a1a; font-weight: 600; text-align: right; max-width: 60%; }
 
-  .declaration-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 12px;
-    font-size: 13px;
-    color: #333;
-    line-height: 1.4;
-  }
-  .declaration-item input[type="checkbox"] {
-    accent-color: #1a6b3c;
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  .declaration-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 13px; color: #333; line-height: 1.4; }
+  .declaration-item input[type="checkbox"] { accent-color: #1a6b3c; width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
 
-  @media (max-width: 480px) {
-    .app { max-width: 100%; }
-  }
+  @media (max-width: 480px) { .app { max-width: 100%; } }
 </style>
 </head>
 <body>
@@ -311,16 +217,7 @@
     <div class="top-bar"></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -344,7 +241,7 @@
           <p class="body-text" style="margin-bottom:4px;">Applicants must:</p>
           <ul class="bullet-list">
             <li>Be a Sierra Leonean citizen</li>
-            <li>Hold a Bachelor's degree in statistics, mathematics, GIS, ICT, social sciences or a related field, a Higher National Diploma (HND) or an Ordinary National Diploma (OND) from a recognised institution (a Master's degree is an added advantage)</li>
+            <li>Hold a Bachelor's degree in statistics, mathematics, GIS, ICT, social sciences or a related field, a Higher National Diploma (HND) or an Ordinary National Diploma (ON) from a recognised institution (a Master's degree is an added advantage)</li>
             <li>Have at least three (3) years of experience in census and survey data collection</li>
             <li>Have ICT and digital data-collection skills</li>
             <li>Have knowledge of the local area, community and language</li>
@@ -362,7 +259,7 @@
           <div class="important-notice">
             <strong>IMPORTANT NOTICE</strong> — Recruitment is <strong>FREE</strong>. Applicants must not pay any money to anyone at any stage of the recruitment process. Only shortlisted candidates who successfully complete the required training and assessment will be considered for final deployment.
           </div>
-          <div class="signed">Signed: Statistician General</div>
+          <div class="signed">Signed: Statistician General</div recent>
         </div>
 
         <div class="read-toggle" id="readToggle" onclick="toggleLanding()">Read less ▴</div>
@@ -386,16 +283,7 @@
     <div class="progress-bar"><div class="progress-fill" style="width: 10%"></div></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -404,7 +292,7 @@
     </div>
     <div class="banner banner-info">A code was sent by SMS. It expires in 10 minutes.</div>
     <div class="otp-card">
-      <div class="otp-title">Enter the code sent to <a href="#" id="otp-number-display">030386768</a></div>
+      <div class="otp-title">Enter the code sent to <a href="#" id="otp-number-display">031001122</a></div>
       <label class="form-label" for="otp-code">6-digit code</label>
       <input type="text" class="otp-input" id="otp-code" maxlength="6" placeholder="------" inputmode="numeric">
       <button class="btn-primary" onclick="verifyOTP()">Verify</button>
@@ -419,16 +307,7 @@
     <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -436,8 +315,8 @@
       </div>
     </div>
     <div class="tabs">
-      <div class="tab active"><span class="tab-icon"></span> Personal Information</div>
-      <div class="tab"><span class="tab-icon"></span> Position &amp; Location</div>
+      <div class="tab active"><span class="tab-icon">👤</span> Personal Information</div>
+      <div class="tab"><span class="tab-icon">📍</span> Position &amp; Location</div>
       <div class="tab"><span class="tab-icon">🎓</span> Education</div>
       <div class="tab"><span class="tab-icon">💼</span> Experience</div>
       <div class="tab"><span class="tab-icon">🗣️</span> Skills</div>
@@ -498,16 +377,7 @@
     <div class="progress-bar"><div class="progress-fill" style="width: 35%"></div></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -515,8 +385,8 @@
       </div>
     </div>
     <div class="tabs">
-      <div class="tab completed"><span class="tab-icon"></span> Personal Information <span class="tab-check">✓</span></div>
-      <div class="tab active"><span class="tab-icon"></span> Position &amp; Location</div>
+      <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
+      <div class="tab active"><span class="tab-icon">📍</span> Position &amp; Location</div>
       <div class="tab"><span class="tab-icon">🎓</span> Education</div>
       <div class="tab"><span class="tab-icon">💼</span> Experience</div>
       <div class="tab"><span class="tab-icon">🗣️</span> Skills</div>
@@ -603,16 +473,7 @@
     <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -622,10 +483,10 @@
     <div class="tabs">
       <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
       <div class="tab completed"><span class="tab-icon">📍</span> Position &amp; Location <span class="tab-check">✓</span></div>
-      <div class="tab active"><span class="tab-icon"></span> Education</div>
-      <div class="tab"><span class="tab-icon"></span> Experience</div>
-      <div class="tab"><span class="tab-icon">️</span> Skills</div>
-      <div class="tab"><span class="tab-icon"></span> Review</div>
+      <div class="tab active"><span class="tab-icon">🎓</span> Education</div>
+      <div class="tab"><span class="tab-icon">💼</span> Experience</div>
+      <div class="tab"><span class="tab-icon">🗣️</span> Skills</div>
+      <div class="tab"><span class="tab-icon">📋</span> Review</div>
     </div>
     <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
     <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
@@ -681,16 +542,7 @@
     <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -700,10 +552,10 @@
     <div class="tabs">
       <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
       <div class="tab completed"><span class="tab-icon">📍</span> Position &amp; Location <span class="tab-check">✓</span></div>
-      <div class="tab completed"><span class="tab-icon"></span> Education <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">🎓</span> Education <span class="tab-check">✓</span></div>
       <div class="tab active"><span class="tab-icon">💼</span> Experience</div>
       <div class="tab"><span class="tab-icon">🗣️</span> Skills</div>
-      <div class="tab"><span class="tab-icon"></span> Review</div>
+      <div class="tab"><span class="tab-icon">📋</span> Review</div>
     </div>
     <div class="signout-bar"><button class="signout-btn" onclick="goToLanding()">Sign out</button></div>
     <div class="saved-note">Saved sections are kept – sign back in with a new SMS code.</div>
@@ -726,62 +578,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Census</td>
-              <td><input type="radio" name="exp_census" value="Did Not Work" checked></td>
-              <td><input type="radio" name="exp_census" value="Enumerator"></td>
-              <td><input type="radio" name="exp_census" value="Supervisor"></td>
-              <td><input type="radio" name="exp_census" value="Listing"></td>
-              <td><input type="radio" name="exp_census" value="Other"></td>
-            </tr>
-            <tr>
-              <td>SLIHS</td>
-              <td><input type="radio" name="exp_slihs" value="Did Not Work" checked></td>
-              <td><input type="radio" name="exp_slihs" value="Enumerator"></td>
-              <td><input type="radio" name="exp_slihs" value="Supervisor"></td>
-              <td><input type="radio" name="exp_slihs" value="Listing"></td>
-              <td><input type="radio" name="exp_slihs" value="Other"></td>
-            </tr>
-            <tr>
-              <td>Agricultural Survey</td>
-              <td><input type="radio" name="exp_agri" value="Did Not Work" checked></td>
-              <td><input type="radio" name="exp_agri" value="Enumerator"></td>
-              <td><input type="radio" name="exp_agri" value="Supervisor"></td>
-              <td><input type="radio" name="exp_agri" value="Listing"></td>
-              <td><input type="radio" name="exp_agri" value="Other"></td>
-            </tr>
-            <tr>
-              <td>SLDHS</td>
-              <td><input type="radio" name="exp_sldhs" value="Did Not Work" checked></td>
-              <td><input type="radio" name="exp_sldhs" value="Enumerator"></td>
-              <td><input type="radio" name="exp_sldhs" value="Supervisor"></td>
-              <td><input type="radio" name="exp_sldhs" value="Listing"></td>
-              <td><input type="radio" name="exp_sldhs" value="Other"></td>
-            </tr>
-            <tr>
-              <td>SLMICS</td>
-              <td><input type="radio" name="exp_slmics" value="Did Not Work" checked></td>
-              <td><input type="radio" name="exp_slmics" value="Enumerator"></td>
-              <td><input type="radio" name="exp_slmics" value="Supervisor"></td>
-              <td><input type="radio" name="exp_slmics" value="Listing"></td>
-              <td><input type="radio" name="exp_slmics" value="Other"></td>
-            </tr>
-            <tr>
-              <td>PSSNYE (SSN)</td>
-              <td><input type="radio" name="exp_pssnye" value="Did Not Work" checked></td>
-              <td><input type="radio" name="exp_pssnye" value="Enumerator"></td>
-              <td><input type="radio" name="exp_pssnye" value="Supervisor"></td>
-              <td><input type="radio" name="exp_pssnye" value="Listing"></td>
-              <td><input type="radio" name="exp_pssnye" value="Other"></td>
-            </tr>
-            <tr>
-              <td>Other Survey</td>
-              <td><input type="radio" name="exp_other" value="Did Not Work" checked></td>
-              <td><input type="radio" name="exp_other" value="Enumerator"></td>
-              <td><input type="radio" name="exp_other" value="Supervisor"></td>
-              <td><input type="radio" name="exp_other" value="Listing"></td>
-              <td><input type="radio" name="exp_other" value="Other"></td>
-            </tr>
+            <tr><td>Census</td><td><input type="radio" name="exp_census" value="Did Not Work" checked></td><td><input type="radio" name="exp_census" value="Enumerator"></td><td><input type="radio" name="exp_census" value="Supervisor"></td><td><input type="radio" name="exp_census" value="Listing"></td><td><input type="radio" name="exp_census" value="Other"></td></tr>
+            <tr><td>SLIHS</td><td><input type="radio" name="exp_slihs" value="Did Not Work" checked></td><td><input type="radio" name="exp_slihs" value="Enumerator"></td><td><input type="radio" name="exp_slihs" value="Supervisor"></td><td><input type="radio" name="exp_slihs" value="Listing"></td><td><input type="radio" name="exp_slihs" value="Other"></td></tr>
+            <tr><td>Agricultural Survey</td><td><input type="radio" name="exp_agri" value="Did Not Work" checked></td><td><input type="radio" name="exp_agri" value="Enumerator"></td><td><input type="radio" name="exp_agri" value="Supervisor"></td><td><input type="radio" name="exp_agri" value="Listing"></td><td><input type="radio" name="exp_agri" value="Other"></td></tr>
+            <tr><td>SLDHS</td><td><input type="radio" name="exp_sldhs" value="Did Not Work" checked></td><td><input type="radio" name="exp_sldhs" value="Enumerator"></td><td><input type="radio" name="exp_sldhs" value="Supervisor"></td><td><input type="radio" name="exp_sldhs" value="Listing"></td><td><input type="radio" name="exp_sldhs" value="Other"></td></tr>
+            <tr><td>SLMICS</td><td><input type="radio" name="exp_slmics" value="Did Not Work" checked></td><td><input type="radio" name="exp_slmics" value="Enumerator"></td><td><input type="radio" name="exp_slmics" value="Supervisor"></td><td><input type="radio" name="exp_slmics" value="Listing"></td><td><input type="radio" name="exp_slmics" value="Other"></td></tr>
+            <tr><td>PSSNYE (SSN)</td><td><input type="radio" name="exp_pssnye" value="Did Not Work" checked></td><td><input type="radio" name="exp_pssnye" value="Enumerator"></td><td><input type="radio" name="exp_pssnye" value="Supervisor"></td><td><input type="radio" name="exp_pssnye" value="Listing"></td><td><input type="radio" name="exp_pssnye" value="Other"></td></tr>
+            <tr><td>Other Survey</td><td><input type="radio" name="exp_other" value="Did Not Work" checked></td><td><input type="radio" name="exp_other" value="Enumerator"></td><td><input type="radio" name="exp_other" value="Supervisor"></td><td><input type="radio" name="exp_other" value="Listing"></td><td><input type="radio" name="exp_other" value="Other"></td></tr>
           </tbody>
         </table>
       </div>
@@ -805,16 +608,7 @@
     <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -824,7 +618,7 @@
     <div class="tabs">
       <div class="tab completed"><span class="tab-icon">👤</span> Personal Information <span class="tab-check">✓</span></div>
       <div class="tab completed"><span class="tab-icon">📍</span> Position &amp; Location <span class="tab-check">✓</span></div>
-      <div class="tab completed"><span class="tab-icon"></span> Education <span class="tab-check">✓</span></div>
+      <div class="tab completed"><span class="tab-icon">🎓</span> Education <span class="tab-check">✓</span></div>
       <div class="tab completed"><span class="tab-icon">💼</span> Experience <span class="tab-check">✓</span></div>
       <div class="tab active"><span class="tab-icon">🗣️</span> Skills</div>
       <div class="tab"><span class="tab-icon">📋</span> Review</div>
@@ -840,12 +634,7 @@
       <div style="overflow-x: auto;">
         <table class="lang-table">
           <thead>
-            <tr>
-              <th>Language</th>
-              <th>Speak</th>
-              <th>Write</th>
-              <th>Read</th>
-            </tr>
+            <tr><th>Language</th><th>Speak</th><th>Write</th><th>Read</th></tr>
           </thead>
           <tbody>
             <tr><td>Krio</td><td><input type="checkbox" name="lang_krio_speak"></td><td><input type="checkbox" name="lang_krio_write"></td><td><input type="checkbox" name="lang_krio_read"></td></tr>
@@ -901,16 +690,7 @@
     <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
     <div class="header">
       <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a6b3c" stroke="#0d4a28" stroke-width="2"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <text x="50" y="30" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">STATISTICS</text>
-          <text x="50" y="40" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">SIERRA LEONE</text>
-          <path d="M50 45 L50 75" stroke="#fff" stroke-width="2"/>
-          <path d="M50 50 Q35 50 30 60 Q35 55 40 58 Q38 52 45 52 Q43 47 50 47 Q57 47 55 52 Q62 52 60 58 Q65 55 70 60 Q65 50 50 50Z" fill="#fff"/>
-          <circle cx="50" cy="48" r="4" fill="#ffd700"/>
-          <text x="50" y="88" text-anchor="middle" fill="#fff" font-size="6" font-family="Arial">EST. 1972</text>
-        </svg>
+        <img src="Statics Sierra Leone.jpg" alt="Statistics Sierra Leone Logo">
       </div>
       <div class="header-text">
         <div class="header-org">Statistics Sierra Leone</div>
@@ -985,22 +765,10 @@
       </div>
 
       <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee;">
-        <label class="declaration-item">
-          <input type="checkbox" id="decl1">
-          <span>The information given is true; false statements disqualify me.</span>
-        </label>
-        <label class="declaration-item">
-          <input type="checkbox" id="decl2">
-          <span>I am available for the full training and enumeration period.</span>
-        </label>
-        <label class="declaration-item">
-          <input type="checkbox" id="decl3">
-          <span>I consent to Statistics Sierra Leone processing this data for recruitment.</span>
-        </label>
-        <label class="declaration-item">
-          <input type="checkbox" id="decl4">
-          <span>I understand engagement is temporary and conditional on training performance.</span>
-        </label>
+        <label class="declaration-item"><input type="checkbox" id="decl1"><span>The information given is true; false statements disqualify me.</span></label>
+        <label class="declaration-item"><input type="checkbox" id="decl2"><span>I am available for the full training and enumeration period.</span></label>
+        <label class="declaration-item"><input type="checkbox" id="decl3"><span>I consent to Statistics Sierra Leone processing this data for recruitment.</span></label>
+        <label class="declaration-item"><input type="checkbox" id="decl4"><span>I understand engagement is temporary and conditional on training performance.</span></label>
       </div>
 
       <button class="btn-primary" style="margin-top: 20px;" onclick="submitApplication()">Submit my application</button>
@@ -1011,6 +779,9 @@
 </div>
 
 <script>
+  // Global variable to store the simulated OTP
+  let generatedOTP = '';
+
   function showScreen(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
@@ -1018,23 +789,45 @@
   }
 
   function goToLanding() { showScreen('screen-landing'); }
+  
   function goToOTP() {
     const mobile = document.getElementById('mobile-landing').value;
-    if (mobile) document.getElementById('otp-number-display').textContent = mobile;
+    if (!mobile || mobile.length < 9) {
+      alert('Please enter a valid mobile number.');
+      return;
+    }
+    
+    // Generate a random 6-digit code
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    
+    // Simulate sending SMS (In a real app, this would be an API call to an SMS gateway like Twilio or Africa's Talking)
+    alert(`📱 SIMULATION: Verification code ${generatedOTP} has been sent to ${mobile}.\n\n(In a live environment, this would be an actual SMS)`);
+    
+    document.getElementById('otp-number-display').textContent = mobile;
+    document.getElementById('otp-code').value = ''; // clear previous
     showScreen('screen-otp');
     startResendTimer();
   }
+
   function verifyOTP() {
     const code = document.getElementById('otp-code').value;
-    if (code.length === 6) showScreen('screen-personal');
-    else alert('Please enter the 6-digit code sent to your phone.');
+    if (code === generatedOTP) {
+      showScreen('screen-personal');
+    } else {
+      alert(`❌ Invalid code. Please check the number and try again.\n\n(Expected code for testing: ${generatedOTP})`);
+    }
   }
+
   function goToPersonal() { showScreen('screen-personal'); }
   function goToPosition() { showScreen('screen-position'); }
   function goToEducation() { showScreen('screen-education'); }
   function goToExperience() { showScreen('screen-experience'); }
   function goToSkills() { showScreen('screen-skills'); }
-  function goToReview() { populateReview(); showScreen('screen-review'); }
+  
+  function goToReview() { 
+    populateReview(); 
+    showScreen('screen-review'); 
+  }
 
   function toggleLanding() {
     const content = document.getElementById('landing-content');
@@ -1066,9 +859,12 @@
       }
     }, 1000);
   }
+
   function resendCode() {
     if (resendSeconds <= 0) {
-      alert('A new code has been sent to your phone.');
+      generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+      const mobile = document.getElementById('mobile-landing').value;
+      alert(`📱 SIMULATION: New verification code ${generatedOTP} has been sent to ${mobile}.`);
       startResendTimer();
     }
   }
